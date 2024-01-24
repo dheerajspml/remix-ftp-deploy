@@ -25,7 +25,7 @@ jobs:
       - name: 🔨 Build app
         run: npm run build  # Adjust this based on your build command
 
-      - name: 🚀 FTP public files to host
+      - name: Upload ftp
         uses: sebastianpopp/ftp-action@releases/v2
         with:
           host: ${{ secrets.FTP_SERVER }}
@@ -44,3 +44,4 @@ jobs:
           localDir: 'dist'
           remoteDir: 'www'
           options: '--verbose --ascii'
+           
