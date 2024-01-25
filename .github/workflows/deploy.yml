@@ -34,7 +34,7 @@ jobs:
       - name: 🚀 FTP files to host
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ftp.samkirkland.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: 'public/'  # Updated to end with a slash
