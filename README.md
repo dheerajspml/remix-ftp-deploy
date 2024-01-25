@@ -12,7 +12,7 @@ The deployment script runs `npm run build` which does the following
 The finally it runs the `ftp-action` to copy `dist/index.js` and `public/*` files to your host
 
 NOTE: You need to configure the FTP credentials using GitHub Action Secrets. Navigate to
-you repository Settings. Select Security > Secrets > Actions. Then add repository secrets
+you repository Settings. Select Security > Secrets > Actions. Then add repository secre
 for:
 
 - FTP_SERVER
