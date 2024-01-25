@@ -1,7 +1,7 @@
+
 name: 🚀 Deploy
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -10,6 +10,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v2
@@ -25,21 +26,11 @@ jobs:
       - name: 🔨 Build app
         run: npm run build  # Adjust this based on your build command
 
-      - name: Upload ftp
-        uses: sebastianpopp/ftp-action@releases/v2
+      - name: 🚀 FTP files to host
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          
-
-      - name: 🚀 FTP server file to host
-        uses: sebastianpopp/ftp-action@releases/v2
-        with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          localDir: 'dist'
-          remoteDir: 'www'
-          options: '--verbose --ascii'
-           
+          local-dir: 'public'  # Adjust this based on your directory structure
+          server-dir: 'public_html'  # Adjust this based on your hosting environment
