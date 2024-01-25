@@ -1,4 +1,5 @@
 
+
 name: 🚀 Deploy
 
 on:
@@ -25,6 +26,7 @@ jobs:
 
       - name: 🔨 Build app
         run: npm run build  # Adjust this based on your build command
+
       - name: Display FTP Server Address
         run: echo "FTP_SERVER: ${{ secrets.FTP_SERVER }}"
 
@@ -35,5 +37,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: 'public/'  # Updated to end with a slash
-          server-dir: 'public_html/'  # Adjust this based on your hosting environment
-
+          server-dir: 'public_html/'  # Updated to end with a slash
