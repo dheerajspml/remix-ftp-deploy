@@ -32,5 +32,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: 'public'  # Adjust this based on your directory structure
+          local-dir: 'public/'  # Updated to end with a slash
           server-dir: 'public_html'  # Adjust this based on your hosting environment
+
