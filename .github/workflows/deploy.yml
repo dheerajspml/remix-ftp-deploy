@@ -1,5 +1,3 @@
-
-
 name: 🚀 Deploy
 
 on:
@@ -28,7 +26,7 @@ jobs:
         run: npm run build  # Adjust this based on your build command
 
       - name: Display FTP Server Address
-        run: echo "FTP_SERVER: ${{ secrets.FTP_SERVER }}"
+        run: echo "FTP_SERVER:${{ secrets.FTP_SERVER }}"
 
       - name: 🚀 FTP files to host
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
