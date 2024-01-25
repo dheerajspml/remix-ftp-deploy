@@ -25,16 +25,10 @@ jobs:
       - name: 🔨 Build app
         run: npm run build  # Adjust this based on your build command
 
-      - name: Display FTP Server Address
-        run: echo "FTP_SERVER:${{ secrets.FTP_SERVER }}"
-      - name: Debug FTP-Deploy-Action
-        run: npm run debug-ftp
-
-
       - name: 🚀 FTP files to host
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ${{ secret.FTP_SERVER}}
+          server: ${{ secrets.FTP_SERVER}}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: 'public/'  # Updated to end with a slash
